@@ -1,6 +1,7 @@
 package org.lessons.java.pojo;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Evento {
 
@@ -95,6 +96,14 @@ public class Evento {
 		
 		setPostiPrenotati(getPostiPrenotati() - 1);
 		
+	}
+	
+	@Override
+	public String toString() {
+		
+        String dataFormattata = data.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+		
+		return dataFormattata + "-" + titolo;
 	}
 	
 }
