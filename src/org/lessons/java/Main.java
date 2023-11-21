@@ -14,9 +14,9 @@ public class Main {
 		
 		Scanner in = new Scanner(System.in);
 		
-		Concerto c1 = new Concerto("titolo", LocalDate.parse("2023-12-12"), 100, LocalTime.parse("18:00"), new BigDecimal("20"));
-		
-		System.out.println(c1);
+//		Concerto c1 = new Concerto("titolo", LocalDate.parse("2023-12-12"), 100, LocalTime.parse("18:00"), new BigDecimal("20"));
+//		
+//		System.out.println(c1);
 		
 		Evento e1 = null;
 		
@@ -25,6 +25,10 @@ public class Main {
 		String ansUser = in.nextLine();
 		
 		if (ansUser.equals("si")) {
+			
+			System.out.println("L'evento è un concerto? si/no");
+			
+			ansUser = in.nextLine();
 			
 			System.out.println("Inserisci il nome dell'evento: ");
 			
@@ -40,11 +44,38 @@ public class Main {
 			
 			int posti = Integer.valueOf(postiStr);
 			
+			String orario = null;
+			
+			String prezzo = null;
+			
+			if (ansUser.equals("si")) {
+				
+				System.out.println("Inserisci l'orario dell'evento: hh:mm");
+				
+				orario = in.nextLine();
+				
+				System.out.println("inserisci il prezzo dell'evento");
+				
+				prezzo = in.nextLine();
+				
+			}
+			
 			try {
 				
-				e1 = new Evento(title, LocalDate.parse(date), posti);
-				
-				System.out.println(e1);
+				if (ansUser.equals("si")) {
+					
+					e1 = new Concerto(title, LocalDate.parse(date), posti, LocalTime.parse(orario), new BigDecimal(prezzo));
+					
+					System.out.println(e1);
+					
+				} else {
+					
+					e1 = new Evento(title, LocalDate.parse(date), posti);
+					
+					System.out.println(e1);
+					
+				}
+
 				
 			} catch (Exception e) {
 				

@@ -110,7 +110,7 @@ public class Evento {
 		
         
 		
-		return dataFormattata() + "-" + titolo;
+		return dataFormattata() + " - " + titolo;
 	}
 	
 }
