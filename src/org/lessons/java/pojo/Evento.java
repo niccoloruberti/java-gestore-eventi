@@ -98,12 +98,19 @@ public class Evento {
 		
 	}
 	
+	public String dataFormattata() {
+		
+		String dataFormattata = data.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+		
+		return dataFormattata;
+	}
+	
 	@Override
 	public String toString() {
 		
-        String dataFormattata = data.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        
 		
-		return dataFormattata + "-" + titolo;
+		return dataFormattata() + "-" + titolo;
 	}
 	
 }

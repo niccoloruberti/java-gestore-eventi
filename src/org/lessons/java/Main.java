@@ -1,8 +1,11 @@
 package org.lessons.java;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Scanner;
 
+import org.lessons.java.pojo.Concerto;
 import org.lessons.java.pojo.Evento;
 
 public class Main {
@@ -10,6 +13,10 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 		
 		Scanner in = new Scanner(System.in);
+		
+		Concerto c1 = new Concerto("titolo", LocalDate.parse("2023-12-12"), 100, LocalTime.parse("18:00"), new BigDecimal("20"));
+		
+		System.out.println(c1);
 		
 		Evento e1 = null;
 		
@@ -42,6 +49,8 @@ public class Main {
 			} catch (Exception e) {
 				
 				System.err.println(e.getMessage());
+				in.close();
+				return;
 				
 			}
 			
